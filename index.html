@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Quiz</title>
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:#1a1a2e;
+  font-family:Arial, sans-serif;
+}
+
+.box{
+  background:white;
+  width:90%;
+  max-width:350px;
+  padding:20px;
+  border-radius:10px;
+}
+
+h2{
+  text-align:center;
+  color:black;
+}
+
+.question{
+  color:black;
+  font-weight:bold;
+  margin-top:15px;
+}
+
+input{
+  width:100%;
+  padding:8px;
+  margin-top:5px;
+  font-size:16px;
+}
+
+button{
+  width:100%;
+  margin-top:15px;
+  padding:10px;
+  font-size:16px;
+  background:#ff6600;
+  color:white;
+  border:none;
+}
+
+#wish{
+  display:none;
+  margin-top:15px;
+  text-align:center;
+  font-size:18px;
+  color:green;
+  font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>🎉 Birthday Quiz 🎉</h2>
+
+  <div class="question">1. What is snap name?</div>
+  <input id="q1">
+
+  <div class="question">2. Enter the word for today special in V3 form</div>
+  <input id="q2">
+
+  <div class="question">3. A person who loves music is called as</div>
+  <input id="q3">
+
+  <button onclick="check()">Submit</button>
+
+  <div id="wish">
+    🎂 Many more happy returns of the day Melody ❤️
+  </div>
+</div>
+
+<script>
+function check(){
+  if(
+    q1.value.toLowerCase()=="melody" &&
+    q2.value.toLowerCase()=="proposed" &&
+    q3.value.toLowerCase()=="melophile"
+  ){
+    wish.style.display="block";
+  }else{
+    wish.style.display="none";
+    alert("Wrong answer, try again!");
+  }
+}
+</script>
+
+</body>
+</html>
