@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Birthday Riddle 🎂</title>
+
+<style>
+    body {
+        font-family: 'Segoe UI', sans-serif;
+        background: radial-gradient(circle, #ffdde1, #ee9ca7);
+        text-align: center;
+        padding: 40px;
+        overflow: hidden;
+    }
+
+    .card {
+        background: white;
+        padding: 30px;
+        border-radius: 20px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.25);
+        animation: fadeIn 1.5s ease;
+    }
+
+    h2 {
+        color: #ff4d6d;
+    }
+
+    .question {
+        margin-top: 20px;
+        font-weight: 600;
+    }
+
+    input {
+        width: 85%;
+        padding: 10px;
+        margin-top: 8px;
+        border-radius: 10px;
+        border: 1px solid #ccc;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 25px;
+        padding: 12px 30px;
+        font-size: 16px;
+        background: #ff4d6d;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background: #e63956;
+    }
+
+    #message {
+        margin-top: 25px;
+        font-size: 22px;
+        font-weight: bold;
+        color: #2e7d32;
+        display: none;
+        animation: pop 1s ease infinite alternate;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pop {
+        from { transform: scale(1); }
+        to { transform: scale(1.05); }
+    }
+
+    /* Floating hearts */
+    .heart {
+        position: absolute;
+        bottom: -50px;
+        font-size: 24px;
+        animation: float 6s linear infinite;
+        color: #ff4d6d;
+    }
+
+    @keyframes float {
+        0% { transform: translateY(0); opacity: 1; }
+        100% { transform: translateY(-800px); opacity: 0; }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>🎁 Birthday Riddle Time 🎁</h2>
+
+    <div class="question">
+        1️⃣ What is the Snap name?
+        <br>
+        <input type="text" id="q1" placeholder="Enter answer">
+    </div>
+
+    <div class="question">
+        2️⃣ Enter the word for today's special in V3 form:
+        <br>
+        <input type="text" id="q2" placeholder="Enter answer">
+    </div>
+
+    <div class="question">
+        3️⃣ A person who loves music is called:
+        <br>
+        <input type="text" id="q3" placeholder="Enter answer">
+    </div>
+
+    <button onclick="checkAnswers()">Submit 🎉</button>
+
+    <div id="message">
+        🎂🍰 Many more happy returns of the day Melody ❤️✨  
+    </div>
+</div>
+
+<script>
+function checkAnswers() {
+    let a1 = document.getElementById("q1").value.toLowerCase().trim();
+    let a2 = document.getElementById("q2").value.toLowerCase().trim();
+    let a3 = document.getElementById("q3").value.toLowerCase().trim();
+
+    if (a1 === "melody" && a2 === "proposed" && a3 === "melophile") {
+        document.getElementById("message").style.display = "block";
+        createHearts();
+    } else {
+        alert("❌ One or more answers are incorrect. Try again 😊");
+    }
+}
+
+function createHearts() {
+    for (let i = 0; i < 30; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 6000);
+    }
+}
+</script>
+
+</body>
+</html>
