@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Birthday Party 🎉</title>
+
+<style>
+/* BACKGROUND ANIMATION */
+body{
+  margin:0;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:Arial;
+  animation:bg 5s infinite;
+}
+
+@keyframes bg{
+  0%{background:#0f2027;}
+  25%{background:#203a43;}
+  50%{background:#2c5364;}
+  75%{background:#1a1a40;}
+  100%{background:#0f2027;}
+}
+
+/* CARD */
+.card{
+  width:340px;
+  padding:20px;
+  border-radius:15px;
+  background:black;
+  border:5px solid #ff004f;
+  animation:borderGlow 1s infinite alternate;
+}
+
+@keyframes borderGlow{
+  from{box-shadow:0 0 10px red;}
+  to{box-shadow:0 0 40px yellow;}
+}
+
+/* TITLE BLINK */
+h2{
+  text-align:center;
+  color:yellow;
+  animation:blink 1s infinite;
+}
+
+@keyframes blink{
+  0%{opacity:1;}
+  50%{opacity:0;}
+  100%{opacity:1;}
+}
+
+/* INPUT */
+input{
+  width:100%;
+  padding:8px;
+  margin:6px 0;
+}
+
+/* BUTTON COLOR CHANGE */
+button{
+  width:100%;
+  padding:10px;
+  font-size:16px;
+  border:none;
+  background:red;
+  color:white;
+  animation:btn 2s infinite;
+}
+
+@keyframes btn{
+  0%{background:red;}
+  50%{background:orange;}
+  100%{background:red;}
+}
+
+/* BIRTHDAY TEXT JUMP */
+#wish{
+  display:none;
+  margin-top:15px;
+  text-align:center;
+  font-size:22px;
+  color:lime;
+  animation:jump 0.6s infinite;
+}
+
+@keyframes jump{
+  0%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+  100%{transform:translateY(0);}
+}
+
+#error{
+  color:pink;
+  text-align:center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h2>🎉 BIRTHDAY QUIZ 🎉</h2>
+
+  <p>1. What is snap name?</p>
+  <input id="a1">
+
+  <p>2. Enter the word for today special in V3 form</p>
+  <input id="a2">
+
+  <p>3. A person who loves music is called as</p>
+  <input id="a3">
+
+  <button onclick="check()">SUBMIT</button>
+
+  <p id="error"></p>
+
+  <div id="wish">
+    🎂🎉 MANY MORE HAPPY RETURNS OF THE DAY MELODY ❤️✨
+  </div>
+</div>
+
+<script>
+function check(){
+  const x=a1.value.trim().toLowerCase();
+  const y=a2.value.trim().toLowerCase();
+  const z=a3.value.trim().toLowerCase();
+
+  if(x==="melody" && y==="proposed" && z==="melophile"){
+    wish.style.display="block";
+    error.innerText="";
+  }else{
+    wish.style.display="none";
+    error.innerText="❌ WRONG ANSWER";
+  }
+}
+</script>
+
+</body>
+</html>
